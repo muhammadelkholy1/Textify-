@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <title>OCR Web</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="shortcut icon" href="assets/icon.ico" type="image/x-icon" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.min.css" />
+  <link type="text/css" rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <!--Local links-->
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body ng-controller="ctrl">
+  <!-- NAVIGATION-BAR -->
+  <nav class="navbar navbar-light bg-white  " style="box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);">
+    <ul class=" nav" style="list-style-type: none; ">
+      <li class="nav-item">
+        <a class="navbar-brand" href="/">
+          <i class="fa fa-search faa-pulse animated"></i>
+          <span style="color: orange; font-weight: 500">OCR</span>
+          Web
+        </a>
+      </li>
+      <li class="nav-item" style=>
+        <a class="nav-link active disabled" style="color:#757575;border-right: 1px  solid #eee;" href="/">Image To
+          Text</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" style="color:#757575;border-right: 1px  solid #eee;" href="./table.html">Extract
+          Table</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" style="color:#757575;border-right: 1px  solid #eee;" href="./fileconvert.html">PDF to
+          Word</a>
+      </li>
+    </ul>
+    <ul class="nav justify-content-end " id="register.tray">
+      <li class="nav-item">
+        <a class="nav-link logregBtn" href="./login.html" style="color:white ;">Login</a>
+        <!-- <a href="https://www.prepostseo.com/login" class="logregBtn text-white float-right border-dark">Login</a> -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link logregBtn" href="./signup.html" style="color: white;">Register</a>
+      </li>
+    </ul>
+    <ul class="nav justify-content-end " id="logout">
+      <li class="nav-item">
+        <button class="btn logregBtn" style="color: white;" id="logoutbtn">Logout</button>
+      </li>
+    </ul>
+    </ul>
+  </nav>
+
+  <div class="container" style="padding-top: 50px;">
+    <div class="shadow-sm p-3 mb-5 bg-white rounded ">
+      <h3 style="text-align: center;">
+        Image to Text
+      </h3>
+      <h6 style="text-align: center;">Image to Text OCR helps you accurately extract text from images and low-resolution
+        photos in a single click!
+      </h6>
+      <div style="padding-bottom: 10px;">
+        <div class="text-center">
+          <div class="form-group" style="width: 100%">
+            <div class="">
+              <div class="row justify-content-evenly"
+                style="border: 2px dashed #34a370; border-radius: 5px; padding: 20px;margin: 10px;">
+                <div class="col-4">
+                  <img src="https://www.prepostseo.com/web_assets/frontend/img/browse-btn.svg" width="148" height="100"
+                    alt="uploader">
+                  <form action="/upload" method="POST" enctype="multipart/form-data" target="frame">
+                    <label class="form-label" for="customFile">Upload Imge</label>
+                    <input type="file" class="form-control" id="customFile" name="avatar" />
+                    <!-- <input type="file" name="avatar" /> -->
+                    <button class="btn btn-success" id="ocr-btn" style="margin: 10%;background-color: #39b27c ;"
+                      type="button">Extract
+                      Text</button>
+
+                    <button class="btn btn-success" id="translate-btn" style="margin:0%;background-color: #39b27c ;"
+                      type="button">Translate
+                      Text</button>
+                  </form>
+
+                </div>
+              </div>
+              <div id='textcontainer'>
+                <p id="extractedText"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center text-white" style="background-color: rgb(65, 64, 64);">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2024 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">OCR web</a>
+      </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>
